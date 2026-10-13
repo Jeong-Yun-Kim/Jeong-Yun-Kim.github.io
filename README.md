@@ -2,8 +2,8 @@
 
 로봇 제어·자율주행·Backend 프로젝트를 정리한 한국어 정적 포트폴리오.
 
-- 배포 대상: https://jeong-yun-kim.github.io/
-- 저장소: `Jeong-Yun-Kim/Jeong-Yun-Kim.github.io`
+- 공개 사이트: https://jeong-yun-kim.github.io/
+- 저장소: https://github.com/Jeong-Yun-Kim/Jeong-Yun-Kim.github.io
 - Astro 7 + TypeScript, GitHub Actions → GitHub Pages
 - 서버·DB·유료 API·외부 폰트·분석 추적 스크립트 없음
 - 콘텐츠 확인 기준: 2026-10-13
@@ -35,16 +35,21 @@ npm run verify
 
 ## 배포
 
-1. 본인 계정에 **public** 저장소 `Jeong-Yun-Kim.github.io` 생성.
-2. 저장소 Settings → Pages → Build and deployment → Source에서 **GitHub Actions** 선택.
-3. 이 프로젝트를 `main`에 push.
+저장소는 public이며 Settings → Pages → Source가 **GitHub Actions**로 설정되어 있다.
 
 ```bash
-git remote add origin https://github.com/Jeong-Yun-Kim/Jeong-Yun-Kim.github.io.git
-git push -u origin main
+# 처음 내려받기
+git clone https://github.com/Jeong-Yun-Kim/Jeong-Yun-Kim.github.io.git
+cd Jeong-Yun-Kim.github.io
+npm ci
+# 콘텐츠 수정 후 검사·반영
+npm run verify
+git add .
+git commit -m "Update portfolio content"
+git push origin main
 ```
 
-원격이 이미 있다면 추가 명령을 반복하지 않는다. 이후 `main`에 push할 때마다 타입 검사·빌드·링크 검증 후 배포된다. Actions 탭의 **Deploy portfolio to GitHub Pages**에서 수동 실행도 가능하다. Pull request에서는 배포 없이 빌드·검증만 실행한다.
+이후 `main`에 push할 때마다 타입 검사·빌드·링크 검증 후 자동 배포된다. Actions 탭의 **Deploy portfolio to GitHub Pages**에서 수동 실행도 가능하다. Pull request에서는 배포 없이 빌드·검증만 실행한다. Node.js 24와 Ubuntu 24.04를 사용한다.
 
 `astro.config.mjs`의 `site`는 위 기본 주소, `base`는 `/`이다. 사용자 Pages 저장소이므로 저장소 이름을 base path에 넣지 않는다. 각 경로는 `index.html`이 있는 디렉터리로 출력되어 상세 페이지 직접 접속·새로고침을 지원한다. 존재하지 않는 경로는 `/404.html`을 사용한다.
 
