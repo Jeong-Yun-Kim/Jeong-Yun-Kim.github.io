@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import ExternalLink from '../../components/ExternalLink.astro';
+import data from '../../data/projects.json';
+import type { Project } from '../../data/types';
+export function getStaticPaths() { return data.map(project => ({ params: { slug: project.slug }, props: { project } })); }
+interface Props { project: Project }
+const { project: p } = Astro.props;
+const sections = [['overview','프로젝트 개요'],['background','개발 배경'],['goals','목표'],['role','담당 역할'],['architecture','시스템 구성'],['features','주요 기능'],['implementation','구현 내용'],['challenges','문제와 해결 과정'],['evaluation','평가 방법'],['results','결과'],['technology','사용 기술'],['resources','관련 자료']];
+---
+<Base title={p.title} description={p.summary}>
+  <div class="container page-heading project-page-heading"><a class="back-link" href="/projects/">← 프로젝트 아카이브</a><p class="eyebrow">{p.category}</p><h1>{p.title}</h1><p class="page-lead">{p.summary}</p><div class="project-top-meta"><span>{p.period}</span><span>{p.team}</span><span>{p.status}</span></div></div>
+  <div class="container detail-cover"><figure><img src={p.image} alt={p.imageAlt} width="960" height="540" loading="lazy" decoding="async"/><figcaption>{p.imageCaption}</figcaption></figure><aside><p class="eyebrow">MY CONTRIBUTION</p><h2>담당 역할</h2><p>{p.role}</p><p class="detail-highlight">{p.highlight}</p><ul class="tags">{p.technologies.map(t=><li>{t}</li>)}</ul></aside></div>
+  <div class="container detail-layout">
+    <nav class="detail-toc" aria-label="프로젝트 목차"><p class="eyebrow">CONTENTS</p><ol>{sections.map(([id,title])=><li><a href={`#${id}`}>{title}</a></li>)}</ol></nav>
+    <div class="detail-body">
+      <section id="overview"><p class="section-number">01</p><h2>프로젝트 개요</h2><p>{p.overview}</p><p class="small muted">{p.periodNote}</p></section>
+      <section id="background"><p class="section-number">02</p><h2>개발 배경</h2><p>{p.background}</p></section>
+      <section id="goals"><p class="section-number">03</p><h2>목표</h2><ul>{p.goals.map(v=><li>{v}</li>)}</ul></section>
+      <section id="role"><p class="section-number">04</p><h2>담당 역할</h2><p class="muted">{p.team}</p><ul>{p.responsibility.map(v=><li>{v}</li>)}</ul></section>
+      <section id="architecture"><p class="section-number">05</p><h2>시스템 구성</h2><div class="architecture-list">{p.architecture.map((v,i)=><div><span class="mono">{String(i+1).padStart(2,'0')}</span><div><h3>{v.title}</h3><p>{v.description}</p></div></div>)}</div></section>
+      <section id="features"><p class="section-number">06</p><h2>주요 기능</h2><ul>{p.features.map(v=><li>{v}</li>)}</ul></section>
+      <section id="implementation"><p class="section-number">07</p><h2>구현 내용</h2>{p.implementation.map(v=><article class="text-entry"><h3>{v.title}</h3><p>{v.description}</p></article>)}{p.extraImage && <figure class="inline-figure"><img src={p.extraImage.src} alt={p.extraImage.alt} width="1252" height="694" loading="lazy" decoding="async"/><figcaption>{p.extraImage.caption}</figcaption></figure>}</section>
+      <section id="challenges"><p class="section-number">08</p><h2>문제와 해결 과정</h2>{p.challenges.map(v=><article class="challenge"><h3>{v.problem}</h3><dl><div><dt>해결</dt><dd>{v.solution}</dd></div><div><dt>검증</dt><dd>{v.verification}</dd></div></dl></article>)}</section>
+      <section id="evaluation"><p class="section-number">09</p><h2>평가 방법</h2><ul>{p.evaluation.map(v=><li>{v}</li>)}</ul></section>
+      <section id="results"><p class="section-number">10</p><h2>결과</h2>{p.metrics.length>0 && <div class="metric-grid">{p.metrics.map(v=><div><strong>{v.value}</strong><span>{v.label}</span><small>{v.context}</small></div>)}</div>}<ul>{p.results.map(v=><li>{v}</li>)}</ul><div class="limits"><h3>해석 범위 및 후속 과제</h3><ul>{p.limits.map(v=><li>{v}</li>)}</ul></div></section>
+      <section id="technology"><p class="section-number">11</p><h2>사용 기술</h2><ul class="tags tags-large">{p.technologies.map(t=><li>{t}</li>)}</ul></section>
+      <section id="resources"><p class="section-number">12</p><h2>GitHub 및 관련 자료</h2>{p.links.length > 0 ? <ul class="resource-list">{p.links.map(l=><li><ExternalLink href={l.url}>{l.label}</ExternalLink></li>)}</ul> : <p>소스 저장소는 비공개입니다. 구현 범위와 평가 결과는 위 개발 기록에 정리했습니다.</p>}<p class="source-note">{p.sourceNote}</p></section>
+      <div class="page-actions"><a class="button" href="/projects/">전체 프로젝트 →</a><a class="text-link" href="/resume/">이력서 보기 →</a></div>
+    </div>
+  </div>
+</Base>

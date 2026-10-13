@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile, activities, skills } from '../data/profile';
+---
+<Base title="소개" description="김정윤의 로봇 제어, 자율주행 시뮬레이션, 서버 개발 경험과 학력.">
+  <div class="container page-heading"><p class="eyebrow">ABOUT</p><h1>소개</h1><p class="page-lead">{profile.intro}</p></div>
+  <div class="container prose-page">
+    <section class="intro-grid"><h2>김정윤</h2><div><p>{profile.about}</p><dl class="info-list"><div><dt>학력</dt><dd>{profile.education}<br /><span class="muted">{profile.educationPeriod}</span></dd></div><div><dt>관심 분야</dt><dd>로보틱스 · 자율주행 · 자동화 · Backend</dd></div><div><dt>개발 방식</dt><dd>장비와 소프트웨어 통합, 단계별 검증, 실패 원인과 실험 조건 기록</dd></div></dl></div></section>
+    <section class="intro-grid"><h2>경험</h2><div>{activities.map(a=><article class="about-entry"><p class="mono muted small">{a.period}</p><h3>{a.title}</h3><p>{a.description}</p></article>)}</div></section>
+    <section class="intro-grid"><h2>개발 범위</h2><div>{skills.slice(0,4).map(s=><article class="about-entry"><h3>{s.category}</h3><p>{s.evidence}</p></article>)}</div></section>
+    <div class="page-actions"><a class="button" href="/projects/">프로젝트 보기 →</a><a class="text-link" href="/resume/">이력서 보기 →</a></div>
+  </div>
+</Base>

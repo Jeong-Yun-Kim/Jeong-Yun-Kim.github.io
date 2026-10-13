@@ -1,0 +1,11 @@
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://jeong-yun-kim.github.io',
+  base: '/',
+  output: 'static',
+  trailingSlash: 'always',
+  integrations: [sitemap({ filter: (page) => !page.endsWith('/404/') })],
+  build: { format: 'directory' },
+});
