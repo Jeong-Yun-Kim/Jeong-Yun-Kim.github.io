@@ -30,7 +30,7 @@ const selected = (projects as Project[]).filter(p => p.featured);
   </section>
   <section class="section container split-section" id="experience" aria-labelledby="experience-title">
     <div class="section-heading"><div><p class="eyebrow">EXPERIENCE & ACTIVITIES</p><h2 id="experience-title">경험 및 활동</h2></div></div>
-    <div class="timeline">{activities.map(a => <article class="timeline-row"><p class="mono muted">{a.period}</p><div><h3><a href={a.href}>{a.title}</a></h3><p>{a.description}</p></div></article>)}</div>
+    <div class="timeline">{activities.map(a => <article class="timeline-row"><p class="mono muted">{a.period}</p><div><h3>{a.href ? <a href={a.href}>{a.title}</a> : a.title}</h3><p>{a.description}</p></div></article>)}</div>
   </section>
   <section class="section container split-section" id="awards" aria-labelledby="awards-title">
     <div class="section-heading"><div><p class="eyebrow">AWARDS</p><h2 id="awards-title">수상</h2><p class="section-note">교내 대회 수상 기록</p></div></div>

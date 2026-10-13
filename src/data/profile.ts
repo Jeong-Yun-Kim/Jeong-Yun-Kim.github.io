@@ -7,12 +7,21 @@ export const profile = {
   education: '충북대학교 지능로봇공학과',
   educationPeriod: '2025.03 – 재학 중',
   github: 'https://github.com/Jeong-Yun-Kim',
-  email: 'jeongyun061030@gmail.com',
+  email: 'love2851030@naver.com',
   updated: '2026.10.13',
 };
 
-export const activities = [
-  { period: '2026', title: '충청 ICT 이노베이션스퀘어 개발 역량 강화 멘토링', description: 'Double Click 팀으로 본선 10팀에 진출. CausalRoboQC의 기획과 로봇·서버·웹앱 통합 개발.', href: '/projects/causalroboqc/' },
+type Activity = {
+  period: string;
+  title: string;
+  description: string;
+  href?: string;
+  resume?: boolean;
+};
+
+export const activities: Activity[] = [
+  { period: '2026', title: '모두의 창업', description: '2차 진행 중.', resume: true },
+  { period: '2026', title: '충청 ICT 이노베이션스퀘어 개발 역량 강화 멘토링', description: 'Double Click 팀으로 본선 10팀에 진출. CausalRoboQC의 기획과 로봇·서버·웹앱 통합 개발.', href: '/projects/causalroboqc/', resume: true },
   { period: '2026', title: 'Double Click 로봇 프로젝트', description: '로봇팔·비전·서버를 연결하는 프로젝트 진행. 리니어 이송 보관대 기반 자동 피킹 시스템의 구성과 개발 계획 정리.', href: '/projects/#research' },
   { period: '2025.03 –', title: '충북대학교 지능로봇공학과', description: '재학 중. 로봇 제어, 자율주행 시뮬레이션, 프로그래밍 프로젝트 수행.', href: '/about/' },
 ];
