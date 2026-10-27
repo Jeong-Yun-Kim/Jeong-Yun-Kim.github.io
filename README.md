@@ -8,13 +8,16 @@ Robotics · Autonomous Driving · Backend
 
 ## 주요 내용
 
-- 대표 프로젝트와 전체 프로젝트 아카이브
-- 경험·활동·수상 내역과 사용 기술
-- 인쇄 가능한 이력서와 연락처
+- 분야별 프로젝트 필터와 상세 보기
+- 개발 과정·검증 결과·후속 과제를 정리한 프로젝트 기록
+- 기술, 활동, 수상 내역과 개발 아카이브
+- 인쇄 가능한 이력서와 이메일 연락처
 
 ## 기술
 
-Astro · TypeScript · GitHub Actions · GitHub Pages
+HTML · CSS · JavaScript · GitHub Pages
+
+프레임워크와 외부 CDN 없이 동작하는 정적 페이지. 공통 화면과 JSON 자료를 Python 표준 라이브러리로 조합하며, 배포 결과물은 순수 HTML이다.
 
 ## 관리 문서
 

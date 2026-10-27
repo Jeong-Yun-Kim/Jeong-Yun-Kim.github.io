@@ -9,7 +9,7 @@
     "status": "실기기 통합 검증",
     "summary": "로봇 작업 이력과 제품별 검사 결과를 연결하는 제조 품질관리 시스템.",
     "role": "기획·로봇–서버–웹앱 통합 개발",
-    "team": "Double Click · 팀 프로젝트",
+    "team": "개인 프로젝트",
     "technologies": [
       "FastAPI",
       "Flutter",
@@ -140,7 +140,7 @@
         "url": "https://github.com/Jeong-Yun-Kim/CausalRoboQC/blob/8881fe9a9273728204841ae80bc6f485ded988f6/ai/PRESENTATION.md"
       }
     ],
-    "sourceNote": "2026.10.13 프로젝트·포트폴리오 개발 기록과 공개 저장소 8881fe9 기준. 테스트 수치는 해당 기록의 결과이며 이 사이트 제작 과정에서 재실행한 수치가 아니다.",
+    "sourceNote": "2026.10.13 프로젝트·포트폴리오 개발 기록과 공개 저장소 8881fe9 기준. 테스트 수치는 해당 기록의 결과이며 이 사이트 제작 과정에서 재실행한 수치가 아니다. 프로젝트 구분은 2026.10.27 작성자 정정을 반영했다.",
     "extraImage": {
       "src": "/images/causalroboqc-quality.webp",
       "alt": "CausalRoboQC 제품 상세 화면의 규칙 등급, 작업 이력과 보조 분석 지표",
@@ -281,7 +281,7 @@
     "periodNote": "통합 저장소 생성과 최근 기능 분리 커밋을 기준으로 한 공개 개발 기록 범위.",
     "status": "기능별 저장소 분리",
     "summary": "로봇팔 제어, 양팔 작업, 비전 기반 큐브 정리와 주문 피킹을 ROS2 모듈로 구성.",
-    "role": "큐브 인식·정리 로직 및 로봇 연동 개발",
+    "role": "Mirobot ROS2 제어·비전 및 로봇 연동 개발",
     "team": "동아리 로봇 프로젝트",
     "technologies": [
       "ROS2",
@@ -302,6 +302,7 @@
       "실패 원인과 처리 수량을 주문 결과에 반영"
     ],
     "responsibility": [
+      "기존 ROS1 중심 Mirobot의 ROS2 제어 환경 개발",
       "OpenCV·YOLOv5·ROS2 기반 큐브 인식과 정리 로직 개발",
       "로봇팔 제어와 작업 시퀀스 연동",
       "공개 저장소에서 기능 분리 및 실패 처리 로직 관리"
